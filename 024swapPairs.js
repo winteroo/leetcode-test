@@ -16,13 +16,13 @@
 var swapPairs = function (head) {
   if (!head || !head.next) return head;
   // 创建哑结点
-  let ans = new ListNode(-1);
+  const ans = new ListNode(-1);
   ans.next = head;
   let temp = ans;
   while (temp.next && temp.next.next) {
-    let first = temp.next;
-    let second = temp.next.next;
-    // 哑结点 -> second 
+    const first = temp.next;
+    const second = temp.next.next;
+    // 哑结点 -> second
     // second -> first
     // first -> second.next
     [temp.next, second.next, first.next] = [second, first, second.next];
@@ -42,20 +42,20 @@ var swapPairs = function (head) {
  */
 var swapPairsElse = function (head) {
   if (!head || !head.next) return head;
-  let first = head;
-  let second = head.next;
+  const first = head;
+  const second = head.next;
   first.next = swapPairsElse(second.next);
   second.next = first;
   return second;
-}
+};
 
-/*******************************构造链表结构 **********************/
-function ListNode(val) {
+/** *****************************构造链表结构 **********************/
+function ListNode (val) {
   this.val = val;
   this.next = null;
 }
 
-function LinkedList() {
+function LinkedList () {
   this.length = 0;
   this.head = null;
 }
@@ -73,11 +73,10 @@ LinkedList.prototype.push = function (el) {
     current.next = node;
   }
   this.length++;
-}
+};
 
-
-let list = [1, 2, 3, 4];
-let linkedList = new LinkedList();
+const list = [1, 2, 3, 4];
+const linkedList = new LinkedList();
 let i = 0;
 while (i < list.length) {
   linkedList.push(list[i]);
@@ -86,7 +85,6 @@ while (i < list.length) {
 
 console.log(linkedList);
 
-// console.log(swapPairs(linkedList.head));
-
+console.log(swapPairs(linkedList.head));
 
 console.log(swapPairsElse(linkedList.head));

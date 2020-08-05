@@ -6,11 +6,11 @@
  * @return {number[][]}
  */
 var combinationSum = function (candidates, target) {
-  let n = candidates.length;
-  let res = [];
-  let tmpPath = [];
-  candidates = candidates.sort((a, b) => a - b)
-  let backtrack = (tmpPath, target, start) => {
+  const n = candidates.length;
+  const res = [];
+  const tmpPath = [];
+  candidates = candidates.sort((a, b) => a - b);
+  const backtrack = (tmpPath, target, start) => {
     if (target === 0) {
       res.push(tmpPath);
       return;
@@ -21,11 +21,11 @@ var combinationSum = function (candidates, target) {
       backtrack(tmpPath.slice(), target - candidates[i], i);
       tmpPath.pop();
     }
-  }
+  };
   backtrack(tmpPath, target, 0);
   return res;
 };
 
-let candidates = [2, 3, 6, 7],
-  target = 7;
+const candidates = [2, 3, 6, 7];
+const target = 7;
 console.log(combinationSum(candidates, target));

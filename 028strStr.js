@@ -13,7 +13,7 @@ var strStr = function (haystack, needle) {
   let left = 0;
   let right = needle.length;
   while (right <= haystack.length) {
-    let str = haystack.slice(left, right)
+    const str = haystack.slice(left, right);
     if (str === needle) {
       return left;
     } else {
@@ -24,6 +24,6 @@ var strStr = function (haystack, needle) {
   return -1;
 };
 
-let haystack = "a",
-  needle = "a";
-  console.log(strStr(haystack, needle));
+const haystack = 'a';
+const needle = 'a';
+console.log(strStr(haystack, needle));

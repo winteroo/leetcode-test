@@ -9,7 +9,7 @@
  * @return {number}
  */
 var romanToInt = function (s) {
-  let romanObj = {
+  const romanObj = {
     I: 1,
     V: 5,
     X: 10,
@@ -21,13 +21,13 @@ var romanToInt = function (s) {
   if (s.length === 1) return romanObj[s];
   let i = 0;
   let num = 0;
-  let len = s.length - 1;
+  const len = s.length - 1;
   while (i < len) {
     if (romanObj[s[i]] >= romanObj[s[i + 1]]) {
       num += romanObj[s[i]];
     } else {
       num -= romanObj[s[i]];
-    };
+    }
     i++;
   }
   num += romanObj[s[len]];
@@ -37,7 +37,6 @@ var romanToInt = function (s) {
 console.time('函数执行时间');
 console.log(romanToInt('MCMXCIV'));
 console.timeEnd('函数执行时间');
-
 
 /**
  * @description
@@ -67,10 +66,10 @@ var romanToIntElse = function (s) {
   };
   let i = 0;
   let num = 0;
-  let len = s.length;
+  const len = s.length;
   while (i < len) {
-    let nextNext = map[s.slice(i, i + 2)];
-    let next = map[s.slice(i, i + 1)];
+    const nextNext = map[s.slice(i, i + 2)];
+    const next = map[s.slice(i, i + 1)];
     if (i + 2 <= len && nextNext) {
       num += nextNext;
       i += 2;
@@ -80,13 +79,11 @@ var romanToIntElse = function (s) {
     }
   }
   return num;
-}
+};
 
 console.time('函数执行时间1');
 console.log(romanToIntElse('MCMXCIV'));
 console.timeEnd('函数执行时间1');
-
-
 
 /** @description
  * 将hash表转化为switch函数，
@@ -96,28 +93,28 @@ console.timeEnd('函数执行时间1');
  * @return {number}
  */
 var romanToIntOther = function (s) {
-  function getValue(ch) {
-    switch(ch) {
-        case 'I': return 1;
-        case 'V': return 5;
-        case 'X': return 10;
-        case 'L': return 50;
-        case 'C': return 100;
-        case 'D': return 500;
-        case 'M': return 1000;
-        default: return 0;
+  function getValue (ch) {
+    switch (ch) {
+      case 'I': return 1;
+      case 'V': return 5;
+      case 'X': return 10;
+      case 'L': return 50;
+      case 'C': return 100;
+      case 'D': return 500;
+      case 'M': return 1000;
+      default: return 0;
     }
   }
   if (s.length === 1) return getValue(s);
   let i = 0;
   let num = 0;
-  let len = s.length - 1;
+  const len = s.length - 1;
   while (i < len) {
     if (getValue(s[i]) >= getValue(s[i + 1])) {
       num += getValue(s[i]);
     } else {
       num -= getValue(s[i]);
-    };
+    }
     i++;
   }
   num += getValue(s[len]);
@@ -127,5 +124,3 @@ var romanToIntOther = function (s) {
 console.time('函数执行时间2');
 console.log(romanToIntOther('MCMXCIV'));
 console.timeEnd('函数执行时间2');
-
-

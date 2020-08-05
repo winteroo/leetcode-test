@@ -8,7 +8,7 @@
 var removeElement = function (nums, val) {
   let left = -1;
   let right = 0;
-  let len = nums.length
+  const len = nums.length;
   while (right < len) {
     if (nums[right] === val) {
       // 相同，指针前进
@@ -24,10 +24,9 @@ var removeElement = function (nums, val) {
   return left + 1;
 };
 
-let nums = [0, 1, 2, 2, 3, 0, 4, 2],
-  val = 0
+const nums = [0, 1, 2, 2, 3, 0, 4, 2];
+const val = 0;
 // console.log(removeElement(nums, val));
-
 
 /**
  * @description
@@ -45,12 +44,13 @@ var removeElementElse = function (nums, val) {
       // 并且ans--
       nums[i] = nums[ans - 1];
       ans--;
-    }else {
+    } else {
       // 如果不同则指针向前进
       i++;
     }
   }
   return ans;
-}
+};
 
 console.log(removeElementElse(nums, val));
+console.log(removeElement(nums, val));

@@ -2,10 +2,10 @@
 var convert = function (s, numRows) {
   // 一行输出去
   if (numRows === 1) {
-    return s
+    return s;
   }
   // 创建二维数组
-  let result = [];
+  const result = [];
   for (let i = 0; i < numRows; i++) {
     result[i] = [];
   }
@@ -20,7 +20,7 @@ var convert = function (s, numRows) {
       j++;
     } else {
       j--;
-    };
+    }
     // 向下到达了numRows的深度，掉头
     if (j === numRows) {
       j -= 2;
@@ -32,11 +32,11 @@ var convert = function (s, numRows) {
   }
   console.log(result);
   for (let t = 0; t < numRows; t++) {
-    resultStr += result[t].join('')
+    resultStr += result[t].join('');
   }
   return resultStr;
-}
+};
 
 // let s = 'LEETCODEISHIRING';
-let s = 'ABCD';
+const s = 'ABCD';
 console.log(convert(s, 3));

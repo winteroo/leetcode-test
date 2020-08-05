@@ -12,7 +12,7 @@
  * @return {string[]}
  */
 var letterCombinations = function (digits) {
-  let map = {
+  const map = {
     2: ['a', 'b', 'c'],
     3: ['d', 'e', 'f'],
     4: ['g', 'h', 'i'],
@@ -20,7 +20,7 @@ var letterCombinations = function (digits) {
     6: ['m', 'n', 'o'],
     7: ['p', 'q', 'r', 's'],
     8: ['t', 'u', 'v'],
-    9: ['w', 'x', 'y', 'z'],
+    9: ['w', 'x', 'y', 'z']
   };
   let ans = [];
   // 边界处理
@@ -39,12 +39,12 @@ var letterCombinations = function (digits) {
 };
 
 /**
- * 
+ *
  * @param {Array} combinations 当前组合
  * @param {String} digit 当前号码的下一位对应的英文数组
  */
-function backtrack(combinations, digit) {
-  let ans = [];
+function backtrack (combinations, digit) {
+  const ans = [];
   for (let i = 0; i < combinations.length; i++) {
     for (let j = 0; j < digit.length; j++) {
       ans.push(combinations[i] + digit[j]);
@@ -53,14 +53,12 @@ function backtrack(combinations, digit) {
   return ans;
 }
 
-let num = '23';
+const num = '23';
 console.log(letterCombinations(num));
-
-
 
 /**
  * @description
- * 递归思想  
+ * 递归思想
  * 有点难理解
  * @param {string} digits
  * @return {string[]}
@@ -81,9 +79,9 @@ var letterCombinationsElse = function (digits) {
   map.set('9', 'wxyz');
   var result = [];
 
-  function _generate(i, str) {
+  function _generate (i, str) {
     // terminator
-    if (i == len) {
+    if (i === len) {
       result.push(str);
       return;
     }
@@ -98,4 +96,4 @@ var letterCombinationsElse = function (digits) {
   return result;
 };
 
-console.log(letterCombinationsElse(num))
+console.log(letterCombinationsElse(num));

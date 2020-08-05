@@ -3,13 +3,13 @@
  * @return {number[][]}
  */
 var permute = function (nums) {
-  let result = [];
-  let tempList = [];
+  const result = [];
+  const tempList = [];
   backtrack(result, tempList, nums);
   return result;
 };
 
-function backtrack(result, tempList, nums) {
+function backtrack (result, tempList, nums) {
   if (tempList.length === nums.length) {
     return result.push([...tempList]);
   }
@@ -22,10 +22,8 @@ function backtrack(result, tempList, nums) {
   }
 }
 
-
-let nums = [1,1,2];
+const nums = [1, 1, 2];
 console.log(permute(nums));
-
 
 /**
  * @description 求[1,n]集合中的k个数字组成的组合，不能重复
@@ -33,8 +31,8 @@ console.log(permute(nums));
  * @param {Number} k 限制组合的数字个数
  */
 function combine (n, k) {
-  let result = [];
-  let tempList = [];
+  const result = [];
+  const tempList = [];
   backtrackElse(result, tempList, 1, n, k);
   return result;
   function backtrackElse (result, tempList, start, n, k) {
@@ -51,8 +49,7 @@ function combine (n, k) {
   }
 }
 
-// console.log(combine(5,4));
-
+console.log(combine(5, 4));
 
 // 回溯算法模板
 // let result = [];

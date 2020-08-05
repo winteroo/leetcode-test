@@ -5,14 +5,14 @@
  */
 var multiply = function (num1, num2) {
   if (num1 === '0' || num2 === '0') return '0';
-  let num1Arr = num1.split('');
-  let num2Arr = num2.split('');
+  const num1Arr = num1.split('');
+  const num2Arr = num2.split('');
   let result = [];
   for (let i = num2Arr.length - 1; i >= 0; i--) {
     let carry = 0;
     let remainder = 0;
     let temp = 0;
-    let nums = [];
+    const nums = [];
     if (i < num2Arr.length - 1) {
       for (let k = 0; k < (num2Arr.length - 1 - i); k++) {
         nums.push(0);
@@ -48,18 +48,18 @@ var multiply = function (num1, num2) {
       result = add(result, nums.reverse());
     }
   }
-  return result.join('')
+  return result.join('');
 };
 
-let num1 = "123456789"
-let num2 = "9"
-console.log(multiply(num1, num2)) 
+const num1 = '123456789';
+const num2 = '9';
+console.log(multiply(num1, num2));
 
-function add(num1, num2) {
+function add (num1, num2) {
   console.log(num1, num2);
-  let l1 = num1.length - 1;
-  let l2 = num2.length - 1;
-  let nums = [];
+  const l1 = num1.length - 1;
+  const l2 = num2.length - 1;
+  const nums = [];
   let maxArr = [];
   let minArr = [];
   if (l1 >= l2) {
@@ -95,7 +95,7 @@ function add(num1, num2) {
         nums.push(0);
         nums.push(1);
       } else {
-        nums.push(remainder)
+        nums.push(remainder);
       }
     }
     maxlen--;
@@ -103,4 +103,4 @@ function add(num1, num2) {
   return nums.reverse();
 }
 
-console.log(add([9,9],[9]));
+console.log(add([9, 9], [9]));

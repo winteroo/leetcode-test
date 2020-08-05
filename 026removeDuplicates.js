@@ -4,9 +4,9 @@
  * @param {number[]} nums
  * @return {number}
  */
-var removeDuplicates = function(nums) {
+var removeDuplicates = function (nums) {
   // 剪枝，当数组的长度为0或1时，直接返回数组的长度
-  if (nums.length < 2) return nums.length; 
+  if (nums.length < 2) return nums.length;
   // 设慢指针指向数组的第一项
   let left = 0;
   // 快指针指向数组的第二项
@@ -16,7 +16,7 @@ var removeDuplicates = function(nums) {
     if (nums[left] === nums[right]) {
       // 当快指针和慢指针处的数据相同
       // 则不处理，快指针向前进一位
-      right++
+      right++;
     } else {
       // 当快慢指针处的数据不相同时
       // 将慢指针后一位的数据更改为快指针处的数据
@@ -31,6 +31,5 @@ var removeDuplicates = function(nums) {
   return left + 1;
 };
 
-
-let nums = [0,0,1,1,1,2,2,3,3,4];
+const nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
 console.log(removeDuplicates(nums));

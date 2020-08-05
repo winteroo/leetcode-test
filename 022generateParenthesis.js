@@ -1,6 +1,6 @@
 // /**
 //  * @description
-//  * DFS(depth first search) 
+//  * DFS(depth first search)
 //  * 深度优先搜索
 //  * @param {number} n
 //  * @return {string[]}
@@ -30,9 +30,6 @@
 //   return res
 // };
 
-
-
-
 /**
  * @description
  * 回溯算法
@@ -40,12 +37,12 @@
  * @return {string[]}
  */
 var generateParenthesis = function (n) {
-  let res = []
-  let strs = ['(', ')'];
+  const res = [];
+  // const strs = ['(', ')'];
   backtrack([], n, 0, 0);
   return res;
 
-  function backtrack(tempStr, n, left, right) {
+  function backtrack (tempStr, n, left, right) {
     if (left === n && right === n) {
       res.push(tempStr.join(''));
       return;
@@ -66,5 +63,5 @@ var generateParenthesis = function (n) {
   }
 };
 
-let n = 3;
+const n = 3;
 console.log(generateParenthesis(n));

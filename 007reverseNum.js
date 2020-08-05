@@ -5,7 +5,7 @@
 var reverse = function (x) {
   let numStr = '';
   let num = '';
-  let max = Math.pow(2, 31);
+  const max = Math.pow(2, 31);
   if (x >= 0) {
     numStr = x.toString().split('').reverse().join('');
     num = Number(numStr);
@@ -17,10 +17,10 @@ var reverse = function (x) {
     numStr = (-x).toString().split('').reverse().join('');
     num = Number(numStr);
     if (num > max) {
-      num = 0
+      num = 0;
     }
     return -num;
   }
 };
 
-console.log(reverse(1534236469)) 
+console.log(reverse(1534236469));

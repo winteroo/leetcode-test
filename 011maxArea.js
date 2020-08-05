@@ -7,16 +7,15 @@ var maxArea = function (height) {
   let max = 0;
   for (let i = 0; i < height.length; i++) {
     for (let j = i + 1; j < height.length; j++) {
-      let newArea = Math.min(height[i], height[j]) * (j - i);
+      const newArea = Math.min(height[i], height[j]) * (j - i);
       max = Math.max(max, newArea);
     }
   }
   return max;
 };
 
-let arr = [1, 8, 6, 2, 5, 4, 8, 3, 7];
+const arr = [1, 8, 6, 2, 5, 4, 8, 3, 7];
 console.log(maxArea(arr));
-
 
 /**
  * @description 寻找数组中最大的面积：双指针法
@@ -35,11 +34,11 @@ var maxAreaElse = function (height) {
   let right = height.length - 1;
   let max = 0;
   while (right > left) {
-    let minHeight = Math.min(height[left], height[right]);
+    const minHeight = Math.min(height[left], height[right]);
     max = Math.max(minHeight * (right - left), max);
-    height[left] > height[right] ? right-- : left++
+    height[left] > height[right] ? right-- : left++;
   }
   return max;
-}
+};
 
 console.log(maxAreaElse(arr));

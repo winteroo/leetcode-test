@@ -4,10 +4,10 @@
  * @return {number[]}
  */
 var searchRange = function (nums, target) {
-  let left = findLeft(nums, target);
-  let right = findRight(nums, target);
+  const left = findLeft(nums, target);
+  const right = findRight(nums, target);
   return [left, right];
-}
+};
 
 /**
  * @description
@@ -20,11 +20,11 @@ var searchRange = function (nums, target) {
  * @param {number} target
  * @return {number}
  */
-function findLeft(nums, target) {
+function findLeft (nums, target) {
   let left = 0;
   let right = nums.length - 1; // 注意
   while (left <= right) { // 注意
-    let mid = left + Math.ceil((right - left) / 2);
+    const mid = left + Math.ceil((right - left) / 2);
     if (nums[mid] === target) {
       right = mid - 1; // 注意
     } else if (nums[mid] < target) {
@@ -50,11 +50,11 @@ function findLeft(nums, target) {
  * @param {number} target
  * @return {number}
  */
-function findRight(nums, target) {
+function findRight (nums, target) {
   let left = 0;
   let right = nums.length - 1; // 注意
   while (left <= right) { // 注意
-    let mid = left + Math.ceil((right - left) / 2);
+    const mid = left + Math.ceil((right - left) / 2);
     if (nums[mid] === target) {
       left = mid + 1; // 注意
     } else if (nums[mid] < target) {
@@ -69,8 +69,7 @@ function findRight(nums, target) {
   return right;
 }
 
-
-let nums = [1, 2, 2, 4]
-let target = 2;
+const nums = [1, 2, 2, 4];
+const target = 2;
 
 console.log(searchRange(nums, target));

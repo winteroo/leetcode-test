@@ -6,8 +6,8 @@
 var isPalindrome = function (x) {
   // 处理负数和非0但是以0位结尾的数字
   if (x < 0 || (x % 10 === 0 && x !== 0)) return false;
-  let str = x.toString();
-  let reverseStr = str.split('').reverse().join('');
+  const str = x.toString();
+  const reverseStr = str.split('').reverse().join('');
   if (str === reverseStr) return true;
   return false;
 };
@@ -22,15 +22,15 @@ console.log(isPalindrome(123421));
 var isPalindromeElse = function (x) {
   // 处理负数和非0但是以0位结尾的数字
   if (x < 0 || (x % 10 === 0 && x !== 0)) return false;
-  let str = x.toString();
-  let mid = parseInt(str.length / 2);
+  const str = x.toString();
+  const mid = parseInt(str.length / 2);
   let i = 0;
   while (i < mid) {
     if (str[i] !== str[str.length - i - 1]) {
       return false;
-    };
+    }
     i++;
-  };
+  }
   return true;
 };
 

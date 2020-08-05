@@ -12,7 +12,7 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var nextPermutation = function(nums) {
+var nextPermutation = function (nums) {
   if (nums.length < 2) return nums;
   let len = nums.length;
   let i = len - 2;
@@ -41,7 +41,7 @@ var nextPermutation = function(nums) {
   }
 
   function swap (nums, i, k) {
-    let temp = nums[i];
+    const temp = nums[i];
     nums[i] = nums[k];
     nums[k] = temp;
   }
@@ -50,5 +50,5 @@ var nextPermutation = function(nums) {
 };
 
 // let nums = [1,2,3,8,5,7,6,4];
-let nums = [5,1,1];
+const nums = [5, 1, 1];
 console.log(nextPermutation(nums));

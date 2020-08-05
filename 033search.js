@@ -22,7 +22,7 @@ var search = function (nums, target) {
     if (nums[mid] === target) return mid;
     if (nums[start] === target) return start;
     if (nums[end] === target) return end;
-    // 说明前半部分有序  
+    // 说明前半部分有序
     if (nums[start] < nums[mid]) {
       // 说明目标值存在于有序部分，将末尾设置为mid
       // 继续执行二分查找
@@ -45,8 +45,7 @@ var search = function (nums, target) {
   return -1;
 };
 
-
-let nums = [7,8,1,2,3,4,5,6];
-let target = 2;
+const nums = [7, 8, 1, 2, 3, 4, 5, 6];
+const target = 2;
 
 console.log(search(nums, target));

@@ -5,7 +5,7 @@ set -e
 
 git add -A
 
-git commit -m 'update'
+git commit -m '添加eslint支持，保证代码质量'
 
 git push -f "https://github.com/winteroo/leetcode-test.git" master
 

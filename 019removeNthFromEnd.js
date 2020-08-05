@@ -1,9 +1,9 @@
-function ListNode(val) {
+function ListNode (val) {
   this.val = val;
   this.next = null;
 }
 
-function LinkedList() {
+function LinkedList () {
   this.length = 0;
   this.head = null;
 }
@@ -21,7 +21,7 @@ LinkedList.prototype.push = function (el) {
     current.next = node;
   }
   this.length++;
-}
+};
 
 /**
  * Definition for singly-linked list.
@@ -39,9 +39,10 @@ LinkedList.prototype.push = function (el) {
  * @param {number} n
  * @return {ListNode}
  */
+/* eslint-disable-next-line */
 var removeNthFromEnd = function (head, n) {
   // 设置哑结点，防止删除首节点
-  let noNode = new ListNode(-1);
+  const noNode = new ListNode(-1);
   noNode.next = head;
   // 链表长度
   let len = 0;
@@ -52,7 +53,7 @@ var removeNthFromEnd = function (head, n) {
   }
   temp = noNode;
   let i = 0;
-  let ansi = len - n
+  const ansi = len - n;
   while (i < ansi) {
     temp = temp.next;
     i++;
@@ -61,9 +62,8 @@ var removeNthFromEnd = function (head, n) {
   return noNode.next;
 };
 
-
-let list = [1, 2, 3, 4, 5];
-let linkedList = new LinkedList();
+const list = [1, 2, 3, 4, 5];
+const linkedList = new LinkedList();
 let i = 0;
 while (i < list.length) {
   linkedList.push(list[i]);
@@ -71,10 +71,8 @@ while (i < list.length) {
 }
 
 console.log(linkedList);
-let target = 2;
+const target = 2;
 // console.log(removeNthFromEnd(linkedList.head, target));
-
-
 
 /**
  * @description
@@ -91,7 +89,7 @@ let target = 2;
  */
 var removeNthFromEndElse = function (head, n) {
   // 设置哑结点，防止删除首节点
-  let noNode = new ListNode(-1);
+  const noNode = new ListNode(-1);
   noNode.next = head;
   let first = noNode;
   let end = noNode;
@@ -106,6 +104,6 @@ var removeNthFromEndElse = function (head, n) {
   }
   first.next = first.next.next;
   return noNode.next;
-}
+};
 
 console.log(removeNthFromEndElse(linkedList.head, target));

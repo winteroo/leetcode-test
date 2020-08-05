@@ -4,8 +4,8 @@
  * @param {*} ans 查找的数组(有序)
  * @param {*} item  当前要插入数组的元素(有序)
  */
-function removeDup(ans, item) {
-  let itemStr = item.toString();
+function removeDup (ans, item) {
+  const itemStr = item.toString();
   for (let i = 0; i < ans.length; i++) {
     if (ans[i].toString() === itemStr) {
       return false;
@@ -20,12 +20,12 @@ function removeDup(ans, item) {
  * @return {number[][]}
  */
 var threeSum = function (nums) {
-  let ans = [];
+  const ans = [];
   for (let i = 0; i < nums.length; i++) {
     for (let j = i + 1; j < nums.length; j++) {
       for (let t = j + 1; t < nums.length; t++) {
         if (nums[i] + nums[j] + nums[t] === 0) {
-          let res = [nums[i], nums[j], nums[t]].sort();
+          const res = [nums[i], nums[j], nums[t]].sort();
           if (removeDup(ans, res)) {
             // 注意这里全部是排序后的数组
             ans.push(res);
@@ -37,8 +37,7 @@ var threeSum = function (nums) {
   return ans;
 };
 
-
-let nums = [-1, 0, 1, 2, -1, -4]
+const nums = [-1, 0, 1, 2, -1, -4];
 console.time('执行时间0');
 console.log(threeSum(nums));
 console.timeEnd('执行时间0');
@@ -46,7 +45,7 @@ console.timeEnd('执行时间0');
 /**
  * @description
  * hash表法
- * 注意：把j和后续的数组看做两数之和的hash算法来做 
+ * 注意：把j和后续的数组看做两数之和的hash算法来做
  * hash表结构：
  * -num[i]-nums[j]:[nums[i], nums[j]]
  * 每次判断map[num[j]]是否存在
@@ -56,28 +55,27 @@ console.timeEnd('执行时间0');
  * @return {number[][]}
  */
 var threeSumElse = function (nums) {
-  let ans = [];
+  const ans = [];
   for (let i = 0; i < nums.length - 1; i++) {
-    let map = {};
+    const map = {};
     for (let j = i + 1; j < nums.length; j++) {
       if (map[nums[j]]) {
-        let res = [nums[j], ...map[nums[j]]].sort();
+        const res = [nums[j], ...map[nums[j]]].sort();
         if (removeDup(ans, res)) {
           ans.push(res);
         }
       } else {
-        let key = -nums[j] - nums[i];
-        map[key] = [nums[i], nums[j]]
+        const key = -nums[j] - nums[i];
+        map[key] = [nums[i], nums[j]];
       }
     }
   }
   return ans;
-}
+};
 
 console.time('执行时间1');
 console.log(threeSumElse(nums));
 console.timeEnd('执行时间1');
-
 
 /**
  * @description
@@ -95,31 +93,31 @@ console.timeEnd('执行时间1');
  * @return {number[][]}
  */
 var threeSumOther = function (nums) {
-  let sortNums = nums.sort((a, b) => a - b);
+  const sortNums = nums.sort((a, b) => a - b);
   if (sortNums[0] > 0) return [];
-  let ans = [];
+  const ans = [];
   for (let i = 0; i < sortNums.length - 2; i++) {
     let right = sortNums.length - 1;
     let left = i + 1;
     // 判断当前值和后续值是否相同，相同则说明重复，直接执行下一次循环
-    if(i > 0 && sortNums[i] === sortNums[i-1]) continue; 
+    if (i > 0 && sortNums[i] === sortNums[i - 1]) continue;
     while (left < right) {
       if (
         sortNums[i] + sortNums[left] + sortNums[right] === 0
-        ) {
-        let res = [sortNums[i], sortNums[left], sortNums[right]];
+      ) {
+        const res = [sortNums[i], sortNums[left], sortNums[right]];
         ans.push(res);
         // 如果左指针与其下一个指针值相同，说明存在重复，跳过
         while (
-          left < right && 
+          left < right &&
           sortNums[left + 1] === sortNums[left]
-          ) {
+        ) {
           left++;
         }
         while (
-          left < right && 
+          left < right &&
           sortNums[right - 1] === sortNums[right]
-          ) {
+        ) {
           right--;
         }
         // 执行到这里，左右指针都指向了最后一个与left值相同的位置，
@@ -130,15 +128,15 @@ var threeSumOther = function (nums) {
         left++;
         right--;
       } else {
-        sortNums[i] + 
-        sortNums[left] + 
-        sortNums[right] 
-        > 0 ? right-- : left++;
+        sortNums[i] +
+        sortNums[left] +
+        sortNums[right] >
+        0 ? right-- : left++;
       }
     }
   }
   return ans;
-}
+};
 
 console.time('执行时间2');
 console.log(threeSumOther(nums));

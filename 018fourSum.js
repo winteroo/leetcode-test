@@ -4,8 +4,8 @@
  * @param {*} ans 查找的数组(有序)
  * @param {*} item  当前要插入数组的元素(有序)
  */
-function removeDup(ans, item) {
-  let itemStr = item.toString();
+function removeDup (ans, item) {
+  const itemStr = item.toString();
   for (let i = 0; i < ans.length; i++) {
     if (ans[i].toString() === itemStr) {
       return false;
@@ -14,22 +14,21 @@ function removeDup(ans, item) {
   return true;
 }
 
-
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[][]}
  */
 var fourSum = function (nums, target) {
-  let len = nums.length;
+  const len = nums.length;
   if (len < 4) return [];
-  let ans = [];
+  const ans = [];
   for (let i = 0; i < len - 3; i++) {
     for (let j = i + 1; j < len - 2; j++) {
       for (let x = j + 1; x < len - 1; x++) {
         for (let y = x + 1; y < len; y++) {
           if (nums[i] + nums[j] + nums[x] + nums[y] === target) {
-            let temp = [nums[i], nums[j], nums[x], nums[y]].sort((a, b) => a - b);
+            const temp = [nums[i], nums[j], nums[x], nums[y]].sort((a, b) => a - b);
             if (removeDup(ans, temp)) {
               ans.push(temp);
             }
@@ -41,10 +40,9 @@ var fourSum = function (nums, target) {
   return ans;
 };
 
-let nums = [0, 0, 0, 0]
-let target = 0
+const nums = [0, 0, 0, 0];
+const target = 0;
 console.log(fourSum(nums, target));
-
 
 /**
  * @description
@@ -58,30 +56,29 @@ console.log(fourSum(nums, target));
  * @return {number[][]}
  */
 var fourSumElse = function (nums, target) {
-  let len = nums.length;
+  const len = nums.length;
   if (len < 4) return [];
-  let ans = [];
+  const ans = [];
   for (let i = 0; i < len - 2; i++) {
     for (let j = i + 1; j < len - 1; j++) {
-      let map = {};
+      const map = {};
       for (let x = j + 1; x < len; x++) {
-        let key = target - nums[i] - nums[j] - nums[x];
+        const key = target - nums[i] - nums[j] - nums[x];
         if (map[nums[x]]) {
-          let temp = [nums[x], ...map[nums[x]]].sort((a, b) => a - b)
+          const temp = [nums[x], ...map[nums[x]]].sort((a, b) => a - b);
           if (removeDup(ans, temp)) {
             ans.push(temp);
           }
         } else {
-          map[key] = [nums[i], nums[j], nums[x]]
+          map[key] = [nums[i], nums[j], nums[x]];
         }
       }
     }
   }
   return ans;
-}
+};
 
 console.log(fourSumElse(nums, target));
-
 
 /**
  * @description
@@ -91,10 +88,10 @@ console.log(fourSumElse(nums, target));
  * @return {number[][]}
  */
 var fourSumOther = function (nums, target) {
-  let sns = nums.sort((a, b) => a - b);
-  let len = sns.length;
+  const sns = nums.sort((a, b) => a - b);
+  const len = sns.length;
   if (len < 4) return [];
-  let ans = [];
+  const ans = [];
   for (let i = 0; i < len - 3; i++) {
     // 如果当前循环值与前一个值相同，则判断存在重复，跳过此次循环
     if (i > 0 && sns[i] === sns[i - 1]) continue;
@@ -127,14 +124,14 @@ var fourSumOther = function (nums, target) {
           left++;
           right--;
         } else {
-          sns[i] + sns[j] + sns[left] + sns[right] > target 
-          ? right-- 
-          : left++
+          sns[i] + sns[j] + sns[left] + sns[right] > target
+            ? right--
+            : left++;
         }
       }
     }
   }
   return ans;
-}
+};
 
 console.log(fourSumOther(nums, target));

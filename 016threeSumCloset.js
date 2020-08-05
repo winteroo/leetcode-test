@@ -22,10 +22,9 @@ var threeSumClosest = function (nums, target) {
   return sum;
 };
 
-let nums = [1, 2, 4, 8, 16, 32, 64, 128];
-let target = 82;
+const nums = [1, 2, 4, 8, 16, 32, 64, 128];
+const target = 82;
 console.log(threeSumClosest(nums, target));
-
 
 /**
  * @description
@@ -35,13 +34,13 @@ console.log(threeSumClosest(nums, target));
  * @return {number}
  */
 var threeSumClosestElse = function (nums, target) {
-  let sortNums = nums.sort((a, b) => a - b);
+  const sortNums = nums.sort((a, b) => a - b);
   let ans = sortNums[0] + sortNums[1] + sortNums[nums.length - 1];
   for (let i = 0; i < sortNums.length - 2; i++) {
     let left = i + 1;
     let right = sortNums.length - 1;
     while (left < right) {
-      let sum = sortNums[i] + sortNums[left] + sortNums[right]
+      const sum = sortNums[i] + sortNums[left] + sortNums[right];
       if (Math.abs(sum - target) <= Math.abs(ans - target)) {
         ans = sum;
         if (sum - target === 0) return sum;
@@ -50,6 +49,6 @@ var threeSumClosestElse = function (nums, target) {
     }
   }
   return ans;
-}
+};
 
 console.log(threeSumClosestElse(nums, target));

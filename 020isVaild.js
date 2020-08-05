@@ -11,18 +11,18 @@
  */
 var isValid = function (s) {
   if (s % 2) return false;
-  let stack = [];
-  let map = {
+  const stack = [];
+  const map = {
     '{': '}',
     '(': ')',
     '[': ']'
-  }
+  };
   for (let i = 0; i < s.length; i++) {
-    let str = s.charAt(i);
+    const str = s.charAt(i);
     if (map[str]) {
       stack.push(str);
     } else {
-      let popS = stack.pop();
+      const popS = stack.pop();
       if (map[popS] !== str) return false;
     }
   }
@@ -39,10 +39,10 @@ var isValid = function (s) {
  * @param {string} s
  * @return {boolean}
  */
-var isValid = function (s) {
+var isValid2 = function (s) {
   if (s % 2) return false;
   while (s.length) {
-    let temp = s;
+    const temp = s;
     s = s.replace('()', '');
     s = s.replace('[]', '');
     s = s.replace('{}', '');
@@ -51,5 +51,6 @@ var isValid = function (s) {
   return true;
 };
 
-let s = '()'
+const s = '()';
 console.log(isValid(s));
+console.log(isValid2(s));
