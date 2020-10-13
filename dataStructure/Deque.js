@@ -1,6 +1,6 @@
 // 双端队列
 class Deque {
-  constructor() {
+  constructor () {
     this.deque = [];
   }
 
@@ -11,7 +11,7 @@ class Deque {
   }
 
   // 在双端队列的尾部添加元素
-  addBack(el) {
+  addBack (el) {
     this.deque.push(el);
     return this.deque;
   }
@@ -27,12 +27,12 @@ class Deque {
   }
 
   // 返回队列首位元素
-  peekFront() {
+  peekFront () {
     return this.deque[0];
   }
 
   // 返回队列末尾元素
-  peekBack() {
+  peekBack () {
     return this.deque[this.deque.length - 1];
   }
 }

@@ -1,19 +1,17 @@
-function Animal(name) {
-
+function Animal (name) {
   this.name = name || 'animal';
   this.features = ['sleep', 'eat'];
 
   this.sleep = function () {
     console.log('sleep');
-  }
-
+  };
 }
 
 Animal.prototype.eat = function (food) {
   console.log(this.name + ' eat: ' + food);
-}
+};
 
-/*** 原型链继承 ***/
+/** * 原型链继承 ***/
 
 // function Cat() {
 
@@ -25,8 +23,7 @@ Animal.prototype.eat = function (food) {
 
 // Cat.prototype = new Animal('cat');
 
-
-/*** 构造继承 ***/
+/** * 构造继承 ***/
 
 // function Cat(name) {
 
@@ -37,7 +34,7 @@ Animal.prototype.eat = function (food) {
 //   }
 // }
 
-/*** 实例继承 ***/
+/** * 实例继承 ***/
 
 // function Cat(name) {
 //   let instance = new Animal(name);
@@ -47,7 +44,7 @@ Animal.prototype.eat = function (food) {
 //   return instance
 // }
 
-/*** 拷贝继承 ***/
+/** * 拷贝继承 ***/
 // function Cat(name) {
 //   let animal = new Animal(name);
 //   for (let key in animal) {
@@ -58,8 +55,7 @@ Animal.prototype.eat = function (food) {
 //   }
 // }
 
-
-/*** 组合继承 ***/
+/** * 组合继承 ***/
 // function Cat(name) {
 //   Animal.call(this, name);
 //   this.miao = function () {
@@ -68,13 +64,12 @@ Animal.prototype.eat = function (food) {
 // }
 // Cat.prototype = new Animal();
 
-
-/*** 寄生组合继承 ***/
-function Cat(name) {
+/** * 寄生组合继承 ***/
+function Cat (name) {
   Animal.call(this, name);
   this.miao = function () {
     console.log('miao~');
-  }
+  };
 }
 
 Cat.prototype = Object.create(Animal.prototype);
@@ -87,10 +82,9 @@ Cat.prototype.constructor = Cat;
 //   Cat.prototype.constructor = Cat;
 // })()
 
-
 /** 测试 ***/
-let tom = new Cat('tom');
-let cat = new Cat('cat');
+const tom = new Cat('tom');
+const cat = new Cat('cat');
 
 console.log(cat.name);
 cat.sleep();

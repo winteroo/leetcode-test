@@ -1,21 +1,20 @@
 // 节点类
 class Node {
-  constructor(val) {
+  constructor (val) {
     this.value = val;
     this.next = null;
   }
 }
 
-
 class LinkedList {
-  constructor() {
+  constructor () {
     this.head = null;
     this.length = 0;
   }
 
   // 向链表尾部添加一个新元素
-  push(el) {
-    let node = new Node(el);
+  push (el) {
+    const node = new Node(el);
     if (this.head) {
       let nextNode = this.head;
       while (nextNode.next != null) {
@@ -31,8 +30,8 @@ class LinkedList {
   }
 
   // 向链表的特定位置插入元素
-  insert(el, position) {
-    let node = new Node(el);
+  insert (el, position) {
+    const node = new Node(el);
     if (!this.head) {
       this.head = node;
     } else {
@@ -53,7 +52,7 @@ class LinkedList {
   }
 
   // 获取指定位置处的元素
-  getElementAt(index) {
+  getElementAt (index) {
     if (index >= this.length || index < 0) {
       return undefined;
     }
@@ -65,7 +64,7 @@ class LinkedList {
   }
 
   // 移除元素
-  remove(index) {
+  remove (index) {
     if (index < 0 || index >= this.length) {
       return this.head;
     }
@@ -74,15 +73,15 @@ class LinkedList {
       this.length--;
       return this.head;
     }
-    let preNode = this.getElementAt(index - 1);
-    let current = preNode.next;
+    const preNode = this.getElementAt(index - 1);
+    const current = preNode.next;
     preNode.next = current.next;
     this.length--;
     return this.head;
   }
 
   // 返回元素在链表中的索引
-  indexOf(val) {
+  indexOf (val) {
     let current = this.head;
     for (let i = 0; i < this.length; i++) {
       if (current.value === val) {
@@ -94,22 +93,22 @@ class LinkedList {
   }
 
   // 判断链表是否为空
-  isEmpty() {
+  isEmpty () {
     return this.length === 0;
   }
 
   // 判断链表的长度
-  size() {
+  size () {
     return this.length;
   }
 
   // toString方法
-  toString() {
+  toString () {
     let current = this.head;
-    let stack = [];
+    const stack = [];
     for (let i = 0; i < this.length; i++) {
-      if(typeof current.value === 'object') {
-        stack.push(`${JSON.stringify(current.value)}`); 
+      if (typeof current.value === 'object') {
+        stack.push(`${JSON.stringify(current.value)}`);
       } else {
         stack.push(`${current.value.toString()}`);
       }
@@ -119,14 +118,13 @@ class LinkedList {
   }
 }
 
-
-let list = new LinkedList();
+const list = new LinkedList();
 
 console.log(list.push(1));
 console.log(list.push(2));
 console.log(list.push(3));
-console.log(list.push([1,2,3]));
-console.log(list.push({a:0}));
+console.log(list.push([1, 2, 3]));
+console.log(list.push({ a: 0 }));
 
 // console.log(list.insert(4, 9));
 // console.log(list.insert(4, 1));
