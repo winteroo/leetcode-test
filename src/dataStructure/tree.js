@@ -6,7 +6,6 @@ class Node {
   }
 }
 
-
 // 二叉搜索树 => 假设树中不存在重复节点，且节点都是数值类型的值
 class BinarySearchTree {
   constructor() {
@@ -21,6 +20,7 @@ class BinarySearchTree {
       this.root = new Node(key);
     }
   }
+
   insertNode(node, key) {
     if (node.key > key) {
       if (node.left) {
@@ -36,10 +36,12 @@ class BinarySearchTree {
       }
     }
   }
+
   // 中序遍历
   inOrderTraverse(callback) {
     this.inOrderTraverseNode(this.root, callback);
   }
+
   inOrderTraverseNode(node, callback) {
     if (node) {
       this.inOrderTraverseNode(node.left, callback);
@@ -157,7 +159,8 @@ let list = [5, 6, 5.5, 1, 2, 4, 8, 7, 9];
 let tree = new BinarySearchTree();
 for (let i = 0; i < list.length; i++) {
   tree.insert(list[i]);
-};
+}
+
 console.log(tree);
 
 let inOrderArr = [];
@@ -175,7 +178,6 @@ tree.postOrderTraverse(function (key) {
   postOrderArr.push(key);
 });
 
-
 console.log('中序遍历：', inOrderArr);
 console.log('前序遍历：', preOrderArr);
 console.log('后序遍历：', postOrderArr);
@@ -186,4 +188,4 @@ console.log('树的最大值为：', tree.max());
 let key = 9;
 console.log(`树中是否存在${key}：`, tree.search(key));
 
-console.log(tree.remove(6), tree); 
+console.log(tree.remove(6), tree);

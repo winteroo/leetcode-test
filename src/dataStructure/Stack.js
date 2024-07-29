@@ -13,7 +13,7 @@ class Stack {
 
   // 弹出栈顶元素
   pop() {
-    let item = this.stack.pop();
+    const item = this.stack.pop();
     if (this.stack.length > 0) {
       this.length--;
     }
@@ -42,7 +42,7 @@ class Stack {
   }
 }
 
-let stack = new Stack();
+const stack = new Stack();
 
 console.log(stack.push(1));
 console.log(stack.push(2));
@@ -52,7 +52,6 @@ console.log(stack.peek());
 
 console.log(stack.pop());
 
-
 console.log(stack.isEmpty());
 
 console.log(stack.size());
@@ -60,5 +59,3 @@ console.log(stack.size());
 console.log(stack.clear());
 
 console.log(stack.size());
-
-
