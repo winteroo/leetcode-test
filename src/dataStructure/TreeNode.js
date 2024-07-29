@@ -1,6 +1,6 @@
 class TreeNode {
   constructor(value) {
-    this.value = value;
+    this.val = value;
     this.left = null;
     this.right = null;
   }

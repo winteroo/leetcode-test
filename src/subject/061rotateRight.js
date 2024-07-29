@@ -1,19 +1,19 @@
 // 节点类
 class Node {
-  constructor (val) {
+  constructor(val) {
     this.val = val;
     this.next = null;
   }
 }
 
 class LinkedList {
-  constructor () {
+  constructor() {
     this.head = null;
     this.length = 0;
   }
 
   // 向链表尾部添加一个新元素
-  push (el) {
+  push(el) {
     const node = new Node(el);
     if (this.head) {
       let nextNode = this.head;
@@ -76,7 +76,7 @@ const rotateRight = (head, k) => {
 
   return remainList;
 
-  function findList (head, index) {
+  function findList(head, index) {
     let current = head;
     let cur = head;
     let i = 0;
@@ -94,7 +94,7 @@ const rotateRight = (head, k) => {
     return [head, current];
   }
 
-  function getLen (list) {
+  function getLen(list) {
     let len = 1;
     let temp = list;
     while (temp.next != null) {
@@ -104,7 +104,7 @@ const rotateRight = (head, k) => {
     return len;
   }
 
-  function indexOf (k, len) {
+  function indexOf(k, len) {
     // if (k < len) {
     //   return len - k;
     // }
